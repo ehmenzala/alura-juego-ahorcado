@@ -1,0 +1,278 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+p,
+figure {
+  margin: 0;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:root {
+  --clr-primary-400: hsl(213, 84%, 24%); 
+  --clr-primary-200: hsl(227, 60%, 97%);
+  --clr-accent-400: hsl(210, 9%, 31%);
+  --clr-accent-0: hsl(0, 0%, 100%);
+
+  --fs-400: 2rem;
+  --fs-300: 1.5rem;
+  --fs-200: 1rem;
+  --fs-100: 0.75rem;
+
+  --base-padding: 2.75rem;
+
+  --ff-primary: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--ff-primary);
+  font-size: var(--fs-200);
+  line-height: 1.5;
+  background-color: var(--clr-primary-200);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+  min-height: 100vh;
+}
+
+.alura-logo {
+  padding-inline: calc(2 * var(--base-padding));
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.app-container {
+  width: 77.5rem;
+  max-width: 97.5%;
+  margin-inline: auto;
+}
+
+.main-header {
+  padding-top: var(--base-padding);
+}
+
+/* Button */
+
+.btn {
+  border-radius: 24px;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--clr-primary-400);
+  color: var(--clr-primary-200);
+}
+
+.btn-secondary {
+  background-color: var(--clr-primary-200);
+  color: var(--clr-primary-400);
+  border-color: var(--clr-accent-400)
+  
+}
+
+.init-game-btn {
+  padding: 2.25em 5.25em;
+}
+
+.add-word-btn,
+.save-start-btn,
+.cancel-btn,
+.new-game-btn,
+.give-up-btn {
+  padding: 1.5em;
+}
+
+/* Menu */
+
+.main-menu {
+  display: grid;
+  gap: 2.375rem;
+  justify-items: center;
+}
+
+/* Insert New Word */
+
+.insert-word-menu {
+  width: 41.75rem;
+  max-width: 95%;
+  margin-inline: auto;
+}
+
+.insert-word-form {
+  display: grid;
+  gap: 1rem;
+  grid-template-rows: 25vh auto;
+}
+
+.insert-word-textarea {
+  border: none;
+  resize: none;
+  outline: none;
+  font-size: var(--fs-400);
+  background-color: var(--clr-primary-200);
+}
+
+.insert-word-textarea,
+.insert-word-textarea::placeholder {
+  color: var(--clr-primary-400);
+}
+
+.btns-wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+
+.info-text::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url(../images/info-icon.svg);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.save-start-btn {
+  width: 100%;
+}
+
+.save-container,
+.cancel-btn {
+  flex-basis: 100%;
+}
+
+/* Game */
+
+.hangman-game > * + *  {
+  margin-top: 1rem;
+}
+
+.hang-man-drawing {
+  display: block;
+  margin-inline: auto;
+}
+
+.in-game-btns {
+  width: 41.75rem;
+  max-width: 95%;
+  margin-inline: auto;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.in-game-btns > * {
+  flex-basis: 100%;
+}
+
+.word-discovering {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-inline: auto;
+  width: 80%;
+}
+
+.letter-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
+}
+
+.line {
+  width: 80px;
+  height: 4px;
+  border-radius: 8px;
+  background-color: var(--clr-primary-400);
+}
+
+.letter {
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+
+.used-letters {
+  width: 80%;
+  font-size: 1.5rem;
+  margin-inline: auto;
+  text-align: center;
+  letter-spacing: 1.5rem;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+
+@media screen and (max-width: 33.45em) {
+  main {
+    gap: 5rem;
+  }
+
+  .btns-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .in-game-btns {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .line {
+    width: 48px;
+  }
+
+  .letter {
+    font-size: 1.5rem;
+  }
+}

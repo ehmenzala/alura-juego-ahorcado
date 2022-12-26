@@ -4,10 +4,49 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Juego del ahorcado</title>
+  <title>Juego del ahorcado | #AluraChallenge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
   <link rel="stylesheet" href="css/style.css">
+  <!-- Meta Tags -->
+  <!-- Facebook Meta Tags -->
+  <!-- Twitter Meta Tags -->
 </head>
 <body>
-  <p>Juego del ahorcado</p>
+  <main>
+    <header class="main-header">
+      <h1 style="position: absolute; top: -200rem">Juego del ahorcado - Alura Latam</h1>
+      <img class="alura-logo" src="images/alura-logo.svg" alt="Letra 'a' minúscula de color azul que simboliza el logo de Alura Latam">
+    </header>
+    <article class="app-container">
+      <section class="main-menu" aria-label="Menú principal">
+        <button class="init-game-btn btn btn-primary" id="init-game-btn">Iniciar juego</button>
+        <button class="add-word-btn btn btn-secondary" id="add-word-btn">Agregar nueva palabra</button>
+      </section>
+      <section class="insert-word-menu hidden" aria-label="Sección para añandir una palabra">
+        <form class="insert-word-form">
+          <textarea class="insert-word-textarea" id="insert-word-textarea" maxlength="8" placeholder="Ingrese una palabra" required></textarea>
+          <div class="btns-wrapper">
+            <div class="save-container">
+              <p class="info-text">Máx. de 8 letras</p>
+              <button class="save-start-btn btn btn-primary" id="save-start-btn" type="button">Guardar y empezar</button>
+            </div>
+            <button class="cancel-btn btn btn-secondary" id="cancel-btn" type="button">Cancelar</button>
+          </div>
+        </form>
+      </section>
+      <section class="hangman-game hidden" aria-label="Estás jugando el juego del ahorcado">
+        <canvas class="hang-man-drawing" id="hang-man-drawing" width="180" height="250"></canvas>
+        <div class="word-discovering"></div>
+        <p class="used-letters">ZZZWWWZZWW</p>
+        <div class="in-game-btns">
+        <button type="button" class="new-game-btn btn btn-primary" id="new-game-btn">Nuevo juego</button>
+          <button type="button" class="give-up-btn btn btn-secondary" id="give-up-btn">Desistir</button>
+        </div>
+      </section>
+    </article>
+  </main>
+  <script src="scripts/index.js"></script>
 </body>
 </html>
